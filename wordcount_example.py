@@ -1,7 +1,7 @@
 from pyspark import SparkContext
 
 sc = SparkContext(appName="PythonWordcount")
-lines = sc.textFile('hdfs://NAMENODE-1:8020/user/lavaqe/gutenberg')
+lines = sc.textFile('data/README.md')
 lines_nonempty = lines.filter( lambda x: len(x) > 0 )
 lines_nonempty.count()
 words = lines_nonempty.flatMap(lambda x: x.split())
