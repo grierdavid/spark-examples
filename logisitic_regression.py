@@ -9,7 +9,7 @@ def parsePoint(line):
     return LabeledPoint(values[0], values[1:])
 
 sc = SparkContext(appName="PythonLR")
-data = sc.textFile("sample_svm_data.txt")
+data = sc.textFile("data/sample_svm_data.txt")
 parsedData = data.map(parsePoint)
 
 # Build the model
